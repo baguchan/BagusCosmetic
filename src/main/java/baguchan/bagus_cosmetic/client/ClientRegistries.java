@@ -15,8 +15,8 @@ import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
 @Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ClientRegistries {
     public static void setupClient(final FMLClientSetupEvent event) {
-        CuriosRendererRegistry.register(ModItems.BACK_COSMETIC.get(), BackCosmeticRenderer::new);
-        CuriosRendererRegistry.register(ModItems.HEAD_COSMETIC.get(), HeadCosmeticRenderer::new);
+        CuriosRendererRegistry.register(ModItems.COSMETIC_BACK.get(), BackCosmeticRenderer::new);
+        CuriosRendererRegistry.register(ModItems.COSMETIC_HEAD.get(), HeadCosmeticRenderer::new);
 
     }
 
