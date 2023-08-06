@@ -145,6 +145,7 @@ repositories {
     maven {
         url = "https://api.modrinth.com/maven"
     }
+    maven { url "https://www.cursemaven.com" }
 }
 
 dependencies {
@@ -156,7 +157,7 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     implementation(fg.deobf("maven.modrinth:bagus-lib:1.19.2-3.4.0"))
 
-    implementation fg.deobf("cn.mcmod_mmf.mmlib:MMLib:1.2.2-1.19")
+    implementation fg.deobf("curse.maven:mysterious-mountain-lib-368098:4547401")
 
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.4.1")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.4.1:api")

@@ -2,8 +2,9 @@ package baguchan.bagus_cosmetic.client.render;
 
 import bagu_chan.bagus_lib.client.layer.IArmor;
 import baguchan.bagus_cosmetic.util.CosmeticUtils;
-import cn.mcmod_mmf.mmlib.client.model.SimpleBedrockModel;
+import cn.mcmod_mmf.mmlib.client.model.BedrockHumanoidModel;
 import cn.mcmod_mmf.mmlib.client.model.bedrock.BedrockVersion;
+import cn.mcmod_mmf.mmlib.client.model.pojo.BedrockModelPOJO;
 import cn.mcmod_mmf.mmlib.utils.ClientUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -23,18 +24,21 @@ public class HeadCosmeticRenderer implements ICurioRenderer {
     public <T extends LivingEntity, M extends EntityModel<T>> void render(ItemStack stack, SlotContext slotContext, PoseStack matrixStack, RenderLayerParent<T, M> renderLayerParent, MultiBufferSource renderTypeBuffer, int light, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch) {
         LivingEntity living = slotContext.entity();
         if (renderLayerParent.getModel() instanceof IArmor iArmor) {
-
             VertexConsumer vertexconsumer = renderTypeBuffer
                     .getBuffer(RenderType.entityTranslucent(CosmeticUtils.textureLocationFromItem(stack)));
-            SimpleBedrockModel base_model = new SimpleBedrockModel(
-                    ClientUtil.getModelPOJO(CosmeticUtils.modelLocationFromItem(stack)), BedrockVersion.NEW);
-            iArmor.headPartArmors().forEach(part -> {
-                matrixStack.pushPose();
-                iArmor.translateToHead(part, matrixStack);
-                base_model.renderToBuffer(matrixStack, vertexconsumer, light,
-                        LivingEntityRenderer.getOverlayCoords(living, 0.0F), 1, 1, 1, 1);
-           matrixStack.popPose();
-            });
+
+            BedrockModelPOJO bedrockModelPOJO = ClientUtil.getModelPOJO(CosmeticUtils.modelLocationFromItem(stack));
+            if (bedrockModelPOJO != null) {
+                BedrockHumanoidModel<T> base_model = new BedrockHumanoidModel<>(
+                        bedrockModelPOJO, BedrockVersion.NEW);
+                iArmor.headPartArmors().forEach(part -> {
+                    matrixStack.pushPose();
+                    iArmor.translateToHead(part, matrixStack);
+                    base_model.renderToBuffer(matrixStack, vertexconsumer, light,
+                            LivingEntityRenderer.getOverlayCoords(living, 0.0F), 1, 1, 1, 1);
+                    matrixStack.popPose();
+                });
+            }
         }
     }
 }

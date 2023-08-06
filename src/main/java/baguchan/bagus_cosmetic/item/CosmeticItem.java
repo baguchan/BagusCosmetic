@@ -18,7 +18,7 @@ public class CosmeticItem extends Item implements ICurioItem {
     }
 
     public void appendHoverText(ItemStack p_42880_, @Nullable Level p_42881_, List<Component> p_42882_, TooltipFlag p_42883_) {
-        if (!p_42880_.getTag().isEmpty() && p_42880_.getTag().contains("Cosmetic")) {
+        if (p_42880_.getTag() != null && p_42880_.getTag().contains("Cosmetic")) {
             p_42882_.add(Component.literal("Cosmetic ID :").withStyle(ChatFormatting.DARK_AQUA));
             p_42882_.add(Component.literal(CosmeticUtils.cosmeticLocation(p_42880_).toString()));
         }
