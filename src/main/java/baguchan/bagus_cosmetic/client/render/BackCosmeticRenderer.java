@@ -2,8 +2,7 @@ package baguchan.bagus_cosmetic.client.render;
 
 import bagu_chan.bagus_lib.client.layer.IArmor;
 import baguchan.bagus_cosmetic.util.CosmeticUtils;
-import cn.mcmod_mmf.mmlib.client.model.BedrockHumanoidModel;
-import cn.mcmod_mmf.mmlib.client.model.bedrock.BedrockVersion;
+import cn.mcmod_mmf.mmlib.client.model.SimpleBedrockModel;
 import cn.mcmod_mmf.mmlib.client.model.pojo.BedrockModelPOJO;
 import cn.mcmod_mmf.mmlib.utils.ClientUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -30,8 +29,8 @@ public class BackCosmeticRenderer implements ICurioRenderer {
 
             BedrockModelPOJO bedrockModelPOJO = ClientUtil.getModelPOJO(CosmeticUtils.modelLocationFromItem(stack));
             if (bedrockModelPOJO != null) {
-                BedrockHumanoidModel<T> base_model = new BedrockHumanoidModel<>(
-                        bedrockModelPOJO, BedrockVersion.NEW);
+                SimpleBedrockModel base_model = new SimpleBedrockModel(
+                        bedrockModelPOJO);
 
                 iArmor.bodyPartArmors().forEach(part -> {
                     matrixStack.pushPose();

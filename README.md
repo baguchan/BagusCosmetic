@@ -1,10 +1,11 @@
 # Bagus Cosmetic
 
-This mod is *just* add cosmetic items
+A mod made to enjoy cosmetic items on the server!
 
 only obtainable the command
 
-Things necessary:
+### Things necessary:
+
 ・assets/[modid]/bagus_cosmetics/model you want to put in (warning you must put bedrock model file)
 
 ・assets/[modid]/textures/cosmetic/png texture with the same id

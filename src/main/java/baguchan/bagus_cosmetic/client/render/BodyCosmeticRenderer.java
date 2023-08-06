@@ -3,7 +3,6 @@ package baguchan.bagus_cosmetic.client.render;
 import bagu_chan.bagus_lib.client.layer.IArmor;
 import baguchan.bagus_cosmetic.util.CosmeticUtils;
 import cn.mcmod_mmf.mmlib.client.model.BedrockHumanoidModel;
-import cn.mcmod_mmf.mmlib.client.model.bedrock.BedrockVersion;
 import cn.mcmod_mmf.mmlib.client.model.pojo.BedrockModelPOJO;
 import cn.mcmod_mmf.mmlib.utils.ClientUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -31,7 +30,7 @@ public class BodyCosmeticRenderer implements ICurioRenderer {
             BedrockModelPOJO bedrockModelPOJO = ClientUtil.getModelPOJO(CosmeticUtils.modelLocationFromItem(stack));
             if (bedrockModelPOJO != null) {
                 BedrockHumanoidModel<T> base_model = new BedrockHumanoidModel<>(
-                        bedrockModelPOJO, BedrockVersion.NEW);
+                        bedrockModelPOJO);
 
                 iArmor.rightHandArmors().forEach(part -> {
                     if (base_model.rightArm != null) {
@@ -39,9 +38,6 @@ public class BodyCosmeticRenderer implements ICurioRenderer {
                         base_model.rightArm.x = 0;
                         base_model.rightArm.y = 0;
                         base_model.rightArm.z = 0;
-                        base_model.rightArm.offsetX = 0;
-                        base_model.rightArm.offsetY = 0;
-                        base_model.rightArm.offsetZ = 0;
                         iArmor.translateToChestPat(part, matrixStack);
                         base_model.rightArm.render(matrixStack, vertexconsumer, light,
                                 LivingEntityRenderer.getOverlayCoords(living, 0.0F), 1, 1, 1, 1);
@@ -54,9 +50,6 @@ public class BodyCosmeticRenderer implements ICurioRenderer {
                         base_model.leftArm.x = 0;
                         base_model.leftArm.y = 0;
                         base_model.leftArm.z = 0;
-                        base_model.leftArm.offsetX = 0;
-                        base_model.leftArm.offsetY = 0;
-                        base_model.leftArm.offsetZ = 0;
                         iArmor.translateToChestPat(part, matrixStack);
                         base_model.leftArm.render(matrixStack, vertexconsumer, light,
                                 LivingEntityRenderer.getOverlayCoords(living, 0.0F), 1, 1, 1, 1);
@@ -70,9 +63,6 @@ public class BodyCosmeticRenderer implements ICurioRenderer {
                         base_model.rightLeg.x = 0;
                         base_model.rightLeg.y = 0;
                         base_model.rightLeg.z = 0;
-                        base_model.rightLeg.offsetX = 0;
-                        base_model.rightLeg.offsetY = 0;
-                        base_model.rightLeg.offsetZ = 0;
                         iArmor.translateToLeg(part, matrixStack);
                         base_model.rightLeg.render(matrixStack, vertexconsumer, light,
                                 LivingEntityRenderer.getOverlayCoords(living, 0.0F), 1, 1, 1, 1);
@@ -85,9 +75,6 @@ public class BodyCosmeticRenderer implements ICurioRenderer {
                         base_model.leftLeg.x = 0;
                         base_model.leftLeg.y = 0;
                         base_model.leftLeg.z = 0;
-                        base_model.leftLeg.offsetX = 0;
-                        base_model.leftLeg.offsetY = 0;
-                        base_model.leftLeg.offsetZ = 0;
                         iArmor.translateToLeg(part, matrixStack);
                         base_model.leftLeg.render(matrixStack, vertexconsumer, light,
                                 LivingEntityRenderer.getOverlayCoords(living, 0.0F), 1, 1, 1, 1);
@@ -100,9 +87,6 @@ public class BodyCosmeticRenderer implements ICurioRenderer {
                         base_model.head.x = 0;
                         base_model.head.y = 0;
                         base_model.head.z = 0;
-                        base_model.head.offsetX = 0;
-                        base_model.head.offsetY = 0;
-                        base_model.head.offsetZ = 0;
                         iArmor.translateToHead(part, matrixStack);
                         base_model.head.render(matrixStack, vertexconsumer, light,
                                 LivingEntityRenderer.getOverlayCoords(living, 0.0F), 1, 1, 1, 1);
@@ -115,9 +99,6 @@ public class BodyCosmeticRenderer implements ICurioRenderer {
                         base_model.body.x = 0;
                         base_model.body.y = 0;
                         base_model.body.z = 0;
-                        base_model.body.offsetX = 0;
-                        base_model.body.offsetY = 0;
-                        base_model.body.offsetZ = 0;
                         iArmor.translateToChest(part, matrixStack);
                         base_model.body.render(matrixStack, vertexconsumer, light,
                                 LivingEntityRenderer.getOverlayCoords(living, 0.0F), 1, 1, 1, 1);
