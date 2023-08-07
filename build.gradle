@@ -19,7 +19,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: "org.spongepowered.mixin"
 
-version = '1.20.1-0.1.1'
+version = '1.20.1-0.1.2'
 group = 'baguchan.bagus_cosmetic' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'BagusCosmetic'
 
