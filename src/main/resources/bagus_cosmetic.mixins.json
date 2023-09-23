@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "baguchan.bagus_cosmetic.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "refmap": "bagus_cosmetic.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "client.HumanoidModelMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

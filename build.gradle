@@ -19,6 +19,10 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: "org.spongepowered.mixin"
 
+mixin {
+    add sourceSets.main, "bagus_cosmetic.refmap.json"
+}
+
 version = '1.20.1-0.1.3'
 group = 'baguchan.bagus_cosmetic' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'BagusCosmetic'
@@ -66,6 +70,7 @@ minecraft {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'bagus_cosmetic'
             property 'mixin.env.remapRefMap', 'true'
+            arg "-mixin.config=bagus_cosmetic.mixins.json"
             mods {
                 bagus_cosmetic {
                     source sourceSets.main
@@ -82,6 +87,7 @@ minecraft {
 
             property 'forge.enabledGameTestNamespaces', 'bagus_cosmetic'
             property 'mixin.env.remapRefMap', 'true'
+            arg "-mixin.config=bagus_cosmetic.mixins.json"
             mods {
                 bagus_cosmetic {
                     source sourceSets.main
@@ -185,7 +191,8 @@ jar {
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "baguchan",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "MixinConfigs"            : "bagus_cosmetic.mixins.json"
         ])
     }
 }
