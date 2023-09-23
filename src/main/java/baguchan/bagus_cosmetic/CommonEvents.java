@@ -20,7 +20,7 @@ public class CommonEvents {
     @SubscribeEvent
     public static void spawnWithCosmetic(MobSpawnEvent.FinalizeSpawn event) {
         Mob mob = event.getEntity();
-        if (event.getEntity().getRandom().nextFloat() < 1F && mob.level() instanceof ServerLevel) {
+        if (event.getEntity().getRandom().nextFloat() < 0.01F && mob.level() instanceof ServerLevel) {
             if (!BagusConfigs.COMMON.MOB_WEARABLE_BACK_MODEL.get().isEmpty()) {
                 List<? extends String> list = BagusConfigs.COMMON.MOB_WEARABLE_BACK_MODEL.get();
                 String name = list.get(Mth.clamp(event.getEntity().getRandom().nextInt(list.size()), 0, list.size() - 1));

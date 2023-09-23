@@ -1,5 +1,6 @@
 package baguchan.bagus_cosmetic.client.render.layer;
 
+import baguchan.bagus_cosmetic.item.CosmeticItem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -43,7 +44,7 @@ public class EntityAccessoryLayer extends CuriosLayer<LivingEntity, EntityModel<
                             cosmetic = false;
                         }
 
-                        if (!stack.isEmpty()) {
+                        if (!stack.isEmpty() && stack.getItem() instanceof CosmeticItem) {
                             SlotContext slotContext = new SlotContext(id, livingEntity, i, cosmetic, renderable);
                             ItemStack finalStack = stack;
                             CuriosRendererRegistry.getRenderer(stack.getItem()).ifPresent(
