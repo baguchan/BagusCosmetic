@@ -1,0 +1,13 @@
+{
+  "entities": [
+    "player",
+    "minecraft:zombie",
+    "minecraft:skeleton"
+  ],
+  "slots": [
+    "head",
+    "back",
+    "hands",
+    "body"
+  ]
+}

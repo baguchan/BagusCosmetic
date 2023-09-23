@@ -19,7 +19,11 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: "org.spongepowered.mixin"
 
-version = '1.19.2-0.1.3'
+mixin {
+    add sourceSets.main, "bagus_cosmetic.refmap.json"
+}
+
+version = '1.19.2-0.2.0'
 group = 'baguchan.bagus_cosmetic' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'bagus_cosmetic'
 
@@ -66,6 +70,7 @@ minecraft {
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'bagus_cosmetic'
             property 'mixin.env.remapRefMap', 'true'
+            arg "-mixin.config=bagus_cosmetic.mixins.json"
             mods {
                 bagus_cosmetic {
                     source sourceSets.main
@@ -82,6 +87,7 @@ minecraft {
 
             property 'forge.enabledGameTestNamespaces', 'bagus_cosmetic'
             property 'mixin.env.remapRefMap', 'true'
+            arg "-mixin.config=bagus_cosmetic.mixins.json"
             mods {
                 bagus_cosmetic {
                     source sourceSets.main
@@ -159,7 +165,7 @@ dependencies {
 
     implementation fg.deobf("curse.maven:mysterious-mountain-lib-368098:4547401")
 
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.4.1")
+    implementation fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.4.1")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.19.2-5.1.4.1:api")
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
@@ -185,7 +191,8 @@ jar {
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "baguchan",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "MixinConfigs"            : "bagus_cosmetic.mixins.json"
         ])
     }
 }
