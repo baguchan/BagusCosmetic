@@ -27,14 +27,14 @@ public class BagusConfigs {
         public Common(ForgeConfigSpec.Builder builder) {
 
             MOB_WEARABLE_HEAD_MODEL = builder
-                    .comment("Whitelist the wearable head for monster. Use the full name the model id(eg: bagus_cosmetics:bagu.")
-                    .define("whitelist Mob Wearable Head Model", Lists.newArrayList("bagus_cosmetics:bagu"));
+                    .comment("Whitelist the wearable head for monster. Use the full name the model id(eg: bagus_cosmetic:bagu.")
+                    .define("whitelist Mob Wearable Head Model", Lists.newArrayList("bagus_cosmetic:bagu"));
             MOB_WEARABLE_BODY_MODEL = builder
-                    .comment("Whitelist the wearable body for monster. Use the full name the model id(eg: bagus_cosmetics:bagu.")
-                    .define("whitelist Mob Wearable Body Model", Lists.newArrayList(""));
+                    .comment("Whitelist the wearable body for monster. Use the full name the model id(eg: bagus_cosmetic:bagu.")
+                    .define("whitelist Mob Wearable Body Model", Lists.newArrayList());
             MOB_WEARABLE_BACK_MODEL = builder
-                    .comment("Whitelist the wearable back for monster. Use the full name the model id(eg: bagus_cosmetics:bagu.")
-                    .define("whitelist Mob Wearable Back Model", Lists.newArrayList(""));
+                    .comment("Whitelist the wearable back for monster. Use the full name the model id(eg: bagus_cosmetic:bagu.")
+                    .define("whitelist Mob Wearable Back Model", Lists.newArrayList());
         }
     }
 
