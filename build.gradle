@@ -23,7 +23,7 @@ mixin {
     add sourceSets.main, "bagus_cosmetic.refmap.json"
 }
 
-version = '1.20.1-0.2.0'
+version = '1.20.1-0.2.1'
 group = 'baguchan.bagus_cosmetic' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'BagusCosmetic'
 

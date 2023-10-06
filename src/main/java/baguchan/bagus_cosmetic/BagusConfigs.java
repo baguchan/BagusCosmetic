@@ -28,7 +28,7 @@ public class BagusConfigs {
 
             MOB_WEARABLE_HEAD_MODEL = builder
                     .comment("Whitelist the wearable head for monster. Use the full name the model id(eg: bagus_cosmetics:bagu.")
-                    .define("whitelist Mob Wearable Head Model", Lists.newArrayList(""));
+                    .define("whitelist Mob Wearable Head Model", Lists.newArrayList("bagus_cosmetics:bagu"));
             MOB_WEARABLE_BODY_MODEL = builder
                     .comment("Whitelist the wearable body for monster. Use the full name the model id(eg: bagus_cosmetics:bagu.")
                     .define("whitelist Mob Wearable Body Model", Lists.newArrayList(""));
