@@ -1,5 +1,6 @@
 package baguchan.bagus_cosmetic.item;
 
+import baguchan.bagus_cosmetic.BagusCosmetic;
 import baguchan.bagus_cosmetic.client.render.item.ArmorBWLR;
 import baguchan.bagus_cosmetic.util.CosmeticUtils;
 import com.google.common.collect.LinkedHashMultimap;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import top.theillusivec4.curios.api.CuriosApi;
+import top.theillusivec4.curios.api.SlotAttribute;
 import top.theillusivec4.curios.api.SlotContext;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 import top.theillusivec4.curios.api.type.capability.ICurioItem;
@@ -47,6 +49,16 @@ public class CosmeticItem extends Item implements ICurioItem {
             public void curioTick(SlotContext slotContext) {
                 // ticking logic here
             }
+
+            @Override
+            public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid) {
+                Multimap<Attribute, AttributeModifier> atts = LinkedHashMultimap.create();
+                atts.put(SlotAttribute.getOrCreate(slotType),
+                        new AttributeModifier(uuid, BagusCosmetic.MODID + ":slot_bonus", 1,
+                                AttributeModifier.Operation.ADDITION));
+                CuriosApi.addSlotModifier(atts, slotType, uuid, 1.0, AttributeModifier.Operation.ADDITION);
+                return atts;
+            }
         });
     }
 
@@ -55,13 +67,6 @@ public class CosmeticItem extends Item implements ICurioItem {
             p_42882_.add(Component.literal("Cosmetic ID :").withStyle(ChatFormatting.DARK_AQUA));
             p_42882_.add(Component.literal(CosmeticUtils.cosmeticLocation(p_42880_).toString()));
         }
-    }
-
-    @Override
-    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(SlotContext slotContext, UUID uuid, ItemStack stack) {
-        Multimap<Attribute, AttributeModifier> atts = LinkedHashMultimap.create();
-        CuriosApi.getCuriosHelper().addSlotModifier(atts, slotType, uuid, 1.0, AttributeModifier.Operation.ADDITION);
-        return atts;
     }
 
     @Override
